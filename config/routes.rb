@@ -1,6 +1,7 @@
 Inout::Application.routes.draw do
+  match "profile" => "users#show"
   get "home/index"
-
+  get "users/index"
   devise_for :users
 
   # The priority is based upon order of creation:
@@ -52,7 +53,7 @@ Inout::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  root :to => 'users#index'
 
   # See how all your routes lay out with "rake routes"
 

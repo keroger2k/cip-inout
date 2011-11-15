@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Inout</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Inout</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="header">
+      <div id="logo">
+        <span><%= link_to  "In/Out Board", root_path %></span>
+      </div>
+      <div id="main-nav">
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, profile_path(@profile) %></li>
+            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div id="container">
+      <%= yield %>
+    </div>
+    <div id="footer">
 
-<%= yield %>
-
-</body>
+    </div>
+  </body>
 </html>
