@@ -28,7 +28,8 @@ ActiveRecord::Schema.define(:version => 20111115034626) do
     t.datetime "updated_at"
     t.binary   "available",              :limit => 1,   :default => "b'1'"
     t.string   "message"
-    t.date     "returns",                               :default => '2011-11-15'
+    t.date     "returns",                               :default => '2011-11-18'
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

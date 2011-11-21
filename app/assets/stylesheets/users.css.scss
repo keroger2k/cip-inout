@@ -1,14 +1,58 @@
 #user-list {
   list-style: none;
   padding: 5px; 
+  h2 {
+    float: left;
+  }
   li {
     margin: 0px 0px 5px 0px;
     padding: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid #696969;
+    }
+    &.available {
+      border: 1px solid green;
+    }
+    &.unavailable {
+      border: 1px solid red;
+    }
   }
-  li.available {
-    border: 1px solid green;
+  button {
+    float: right;
+    padding: 5px; 
   }
-  li.unavailable {
-    border: 1px solid red;
+  button.save-button {
+    display: none;
+  }
+  button.away-button {
+  }
+  button.save-button {
+  }
+  .time-selector {
+    clear: left; 
+  }
+  .time-out {
+  }
+  div.away-form {
+    display: none;
+    background-color: #eee;
+    padding: 10px; 
+    border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px; 
+    clear: both;
+    label.label-for {
+      display: inline-block;
+      width: 110px; 
+    }
+    .line {
+      padding: 5px 0;
+    }
   }
 }
