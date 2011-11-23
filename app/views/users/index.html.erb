@@ -3,17 +3,36 @@
     <tr>
       <th>&nbsp;</th>
       <th>Name</th>
-      <th>Returns</th>
       <th>Message</th>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td class="action-edit"><%= link_to 'Edit', edit_users_path(user) %></td>
-        <td class="name"><%= user.name %></td>
-        <td class="return-time"><%= user.returns %></td>
-        <td class="return-message"><%= user.message %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <th>Returns</th>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <% if current_user == user %>
+            <td class="action-edit"><%= link_to 'Edit', profile_path %></td>
+          <% else %>
+            <td class="action-edit">&nbsp;</td>
+          <% end %>
+          <td class="name"><%= user.name %></td>
+          <td class="return-message"><%= user.message %></td>
+          <td class="return-time"><%= user.returns %></td>
+        </tr>
+        <% if current_user == user %>
+          <tr>
+            <td colspan="4" class="away-radio-buttons">
+              <% ['7am','8am','9am','10am','11am',
+               '12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'].each do |i| %>
+                 <label class="time-out"><%= i %></label>
+                 <%= radio_button_tag 'time-back', i, false %>
+               <% end %>            </td>
+           </tr>
+           <tr>
+             <td colspan="4" >
+               <%= text_area(:post, :body, :cols => 100, :rows => 4) %>
+             </td>
+           </tr>
+         <% end %>
+       <% end %>
+     </tbody>
+   </table>

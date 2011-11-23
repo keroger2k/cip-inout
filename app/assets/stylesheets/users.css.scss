@@ -30,4 +30,13 @@ table {
     width: 10px; 
     font-size: .8em;
   }
+  input[type=radio] {
+    margin-right: 5px;
+  }
+  input.away-message {
+    width: 100%;
+  }
+  .away-radio-buttons {
+    text-align: center;
+  }
 }
