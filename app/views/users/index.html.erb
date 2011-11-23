@@ -1,31 +1,19 @@
-<h1>User List</h1>
-<ul id="user-list">
-  <% @users.each do |user| %>
-    <li class=<%= user.available? ? "available" : "unavailable" %>>
-      <h2><%= user.name%></h2>
-      <label class="back-time"></label>
-      <label class="back-message"></label>
-      <button class="show-button">+</button>
-      <div class="away-form">
-        <div class="line">
-          <label class="label-for">Return Time: </label>
-          <span class="time-selector">
-            <% ['7am','8am','9am','10am','11am',
-            '12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'].each do |i| %>
-              <label class="time-out"><%= i %></label>
-              <%= radio_button_tag 'time-back', i, false %>
-            <% end %>
-          </span>
-        </div>
-        <div class="line">
-          <label class="label-for">Message: </label>
-          <%= text_area(:message, :body, :cols => 50, :rows => 4) %>
-        </div>
-        <div class="line">
-          <button class="save-button" style="float:none;">Save</button>
-          <button class="back-button" style="float:none;">I'm back!</button>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Name</th>
+      <th>Returns</th>
+      <th>Message</th>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="action-edit"><%= link_to 'Edit', edit_users_path(user) %></td>
+        <td class="name"><%= user.name %></td>
+        <td class="return-time"><%= user.returns %></td>
+        <td class="return-message"><%= user.message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

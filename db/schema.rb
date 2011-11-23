@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20111115034626) do
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "",           :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "",           :null => false
+    t.string   "email",                                 :default => "",     :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",     :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20111115034626) do
     t.datetime "updated_at"
     t.binary   "available",              :limit => 1,   :default => "b'1'"
     t.string   "message"
-    t.date     "returns",                               :default => '2011-11-18'
+    t.string   "returns"
     t.string   "name"
   end
 

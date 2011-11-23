@@ -1,55 +1,33 @@
-#user-list {
-  list-style: none;
-  padding: 5px; 
-  h2 {
-    float: left;
+table {
+  width: 100%;
+  font-size: 1.2em;
+  color: #666;
+  border: 3px solid #e8e8e8;
+  tr:nth-child(even) {
+    background: #eee; 
   }
-  li {
-    margin: 0px 0px 5px 0px;
+  th {
+    text-align: left; 
+    border-bottom: 1px solid gray;
     padding: 10px;
-    overflow: hidden;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-
-    &:hover {
-      cursor: pointer;
-      border: 1px solid #696969;
-    }
-    &.available {
-      border: 1px solid green;
-    }
-    &.unavailable {
-      border: 1px solid red;
-    }
+    color: #000;
   }
-  button {
-    float: right;
+  td {
+    vertical-align: middle;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+  }
+  .name { 
+    width: 150px;
+  }
+  .return-time {
+    width: 50px; 
+  }
+  .return-message {
+  }
+  .action-edit {
     padding: 5px; 
-  }
-  button.away-button {
-  }
-  button.save-button {
-  }
-  .time-selector {
-    clear: left; 
-  }
-  .time-out {
-  }
-  div.away-form {
-    display: none;
-    background-color: #eee;
-    padding: 10px; 
-    border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    -webkit-border-radius: 5px; 
-    clear: both;
-    label.label-for {
-      display: inline-block;
-      width: 110px; 
-    }
-    .line {
-      padding: 5px 0;
-    }
+    width: 10px; 
+    font-size: .8em;
   }
 }

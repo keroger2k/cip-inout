@@ -1,8 +1,8 @@
 Inout::Application.routes.draw do
   match "profile" => "users#show"
   get "home/index"
-  get "users/index"
   devise_for :users
+  resource :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
