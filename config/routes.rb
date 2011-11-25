@@ -1,6 +1,7 @@
 Inout::Application.routes.draw do
   match "profile" => "users#show"
   get "home/index"
+  match "users/save" => "users#save"
   devise_for :users
   resource :users
 

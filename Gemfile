@@ -2,8 +2,8 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 gem 'mysql2'
-gem 'jquery-rails'
 gem 'unicorn'
+gem 'jquery-rails'
 gem 'devise'
 
 group :assets do

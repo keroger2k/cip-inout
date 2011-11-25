@@ -3,9 +3,6 @@ table {
   font-size: 1.2em;
   color: #666;
   border: 3px solid #e8e8e8;
-  tr:nth-child(even) {
-    background: #eee; 
-  }
   th {
     text-align: left; 
     border-bottom: 1px solid gray;
@@ -30,6 +27,10 @@ table {
     width: 10px; 
     font-size: .8em;
   }
+  .action-back, .action-save {
+    margin: 10px; 
+    padding: 10px;
+  }
   input[type=radio] {
     margin-right: 5px;
   }
@@ -38,5 +39,17 @@ table {
   }
   .away-radio-buttons {
     text-align: center;
+  }
+  .form-data {
+    display: none;
+  }
+  .available {
+    background-color: green; 
+  }
+  .unavailable {
+    background-color: hsl(355, 87%, 91%);
+  }
+  .status {
+    width: 10px;
   }
 }
