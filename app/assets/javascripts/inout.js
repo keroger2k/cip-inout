@@ -68,7 +68,7 @@ $(function() {
       time: '',
       message: ''
     });
-    userData.find('status').removeClass('unavailable'); 
-    userData.find('status').addClass('available'); 
+    userData.find('.status').removeClass('unavailable'); 
+    userData.find('.status').addClass('available'); 
   });
 });
