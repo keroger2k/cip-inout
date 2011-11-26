@@ -5,6 +5,11 @@ gem 'unicorn'
 gem 'jquery-rails'
 gem 'devise'
 gem 'heroku'
+gem 'thin'
+
+group :production do
+  gem 'pg'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -14,10 +19,6 @@ end
 group :development do
   gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
-end
-
-group :production do
-  gem 'pg'
 end
 
 group :test do
