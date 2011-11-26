@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
-gem 'sqlite3'
 gem 'unicorn'
 gem 'jquery-rails'
 gem 'devise'
+gem 'heroku'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
@@ -12,7 +12,7 @@ group :assets do
 end
 
 group :development do
-  gem 'heroku'
+  gem 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
