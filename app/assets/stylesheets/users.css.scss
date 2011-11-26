@@ -44,10 +44,16 @@ table {
     display: none;
   }
   .available {
-    background-color: green; 
+    background-image:url('green-circle.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
   }
   .unavailable {
-    background-color: hsl(355, 87%, 91%);
+    background-image:url('red-circle.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
   }
   .status {
     width: 10px;
