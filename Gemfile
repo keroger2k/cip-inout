@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
-gem 'mysql2'
+gem 'sqlite3'
 gem 'unicorn'
 gem 'jquery-rails'
 gem 'devise'
@@ -12,6 +12,7 @@ group :assets do
 end
 
 group :development do
+  gem 'heroku'
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
