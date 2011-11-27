@@ -22,7 +22,7 @@
         </tr>
         <% if current_user == user %>
           <tr class="form-data">
-            <td colspan="4" class="away-radio-buttons">
+            <td colspan="5" class="away-radio-buttons">
               <% ['7am','8am','9am','10am','11am',
                '12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'].each do |i| %>
                  <label class="time-out"><%= i %></label>
@@ -30,7 +30,7 @@
                <% end %>            </td>
            </tr>
            <tr class="form-data">
-             <td colspan="4" >
+             <td colspan="5" >
                <%= text_area(:user, :message, :cols => 90, :rows => 4) %>
                <button class="action-save">Save</button>
                <button class="action-back">I'm Back</button>
