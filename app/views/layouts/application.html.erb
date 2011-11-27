@@ -9,14 +9,17 @@
   <body>
     <div id="header">
       <div id="logo">
-        <span><%= link_to  "In/Out Board", root_path %></span>
+        <span>
+        <%= link_to image_tag("CORE-3.png", :border => 0), root_path, {:class => 'corp-logo'} %> 
+        </span>
       </div>
       <div id="main-nav">
         <ul>
           <% if user_signed_in? %>
-            <li><%= link_to current_user.email, profile_path(@profile) %></li>
+            <li><%= link_to current_user.email, profile_path(@profile) %> | </li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           <% else %>
+            <li><%= link_to "Register", new_user_registration_path %> | </li>
             <li><%= link_to "Sign in", new_user_session_path %></li>
           <% end %>
         </ul>

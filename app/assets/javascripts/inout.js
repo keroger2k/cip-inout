@@ -44,8 +44,10 @@ $(function() {
       },
       dataType: 'json'
     });
-    userData.find('.status').removeClass('available');
-    userData.find('.status').addClass('unavailable');
+    if(time) {
+      userData.find('.status').removeClass('available');
+      userData.find('.status').addClass('unavailable');
+    }
   });
 
   $('.action-back').click(function() {
