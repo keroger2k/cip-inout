@@ -67,6 +67,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.3)
+    mustache (0.99.4)
+    mustache_rails3 (0.1.2.1)
+    mysql2 (0.3.10)
     orm_adapter (0.0.5)
     pg (0.11.0)
     polyglot (0.3.3)
@@ -152,6 +155,9 @@ DEPENDENCIES
   devise
   heroku
   jquery-rails
+  mustache
+  mustache_rails3
+  mysql2
   pg
   rails (= 3.1.1)
   ruby-debug19

@@ -1,13 +1,17 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
-<<<<<<< HEAD
 gem 'unicorn'
 gem 'jquery-rails'
 gem 'devise'
 gem 'heroku'
 gem 'thin'
 gem 'pg'
+gem 'mysql2'
+gem 'jquery-rails'
+gem 'devise'
+gem 'mustache'
+gem 'mustache_rails3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'

@@ -16,4 +16,5 @@ class UsersController < ApplicationController
       format.json { render :json => "saved" }
     end
   end
+
 end
