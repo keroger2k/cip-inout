@@ -132,13 +132,13 @@ RailsAdmin.config do |config|
   #  - has_many/has_one associations in list section (hidden by default for performance reasons)
   # Fields may also be marked as read_only (and thus not editable) if they are not mass-assignable by current_user
 
-  # config.model User do
+  config.model User do
   #   # Found associations:
   #   # Found columns:
   #     field :id, :integer 
-  #     field :email, :string 
-  #     field :password, :password 
-  #     field :password_confirmation, :password 
+       field :email, :string 
+       field :password, :password 
+       field :password_confirmation, :password 
   #     field :reset_password_token, :string         # Hidden 
   #     field :reset_password_sent_at, :datetime 
   #     field :remember_created_at, :datetime 
@@ -149,15 +149,15 @@ RailsAdmin.config do |config|
   #     field :last_sign_in_ip, :string 
   #     field :created_at, :datetime 
   #     field :updated_at, :datetime 
-  #     field :available, :boolean 
-  #     field :message, :string 
-  #     field :returns, :string 
-  #     field :name, :string   #   # Sections:
+       field :available, :boolean 
+       field :message, :string 
+       field :returns, :string 
+       field :name, :string   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end
   #   edit do; end
   #   create do; end
   #   update do; end
-  # end
+  end
 end
