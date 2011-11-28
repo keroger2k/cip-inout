@@ -1,5 +1,4 @@
 Inout::Application.routes.draw do
-  match "profile" => "devise#registration"
   match "users/save" => "users#save"
   devise_for :users
   resource :users

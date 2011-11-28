@@ -11,7 +11,7 @@
     <% @users.each do |user| %>
       <% if user != current_user %>
         <tr>
-          <td class="<%= user.available? ? 'unavailable' : 'available' %> status">&nbsp;</td>
+          <td class="<%= user.available? ? 'available' : 'unavailable' %> status">&nbsp;</td>
           <td class="name"><%= user.name %></td>
           <td class="return-time details"><%= user.returns %></td>
           <td class="return-message details"><%= user.message %></td>
