@@ -34,7 +34,7 @@ RailsAdmin.config do |config|
 
   #  ==> Authorization
   # Use cancan https://github.com/ryanb/cancan for authorization:
-  # config.authorize_with :cancan
+  config.authorize_with :cancan
 
   # Or use simple custom authorization rule:
   # config.authorize_with do
@@ -153,6 +153,7 @@ RailsAdmin.config do |config|
        field :message, :string 
        field :returns, :string 
        field :name, :string   #   # Sections:
+       field :admin, :boolean
   #   list do; end
   #   export do; end
   #   show do; end
