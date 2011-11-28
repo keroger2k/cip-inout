@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'mustache'
 gem 'mustache_rails3'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
