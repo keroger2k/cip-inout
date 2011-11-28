@@ -1,76 +1,51 @@
 $(function() {
-  $('.action-edit a').click(function(e) {
-    e.preventDefault();
-    $(this).parents('tr')
-      .next('.form-data')
-      .show()
-      .next('.form-data')
-      .show();
-  });
+  var $statusBox = $('#my-status');
+  var $messageBox = $('#user_message', $statusBox);
+  var $radioButtons= $('input[type=radio]', $statusBox);
+  var $currentStatus = $('#main-nav').find('.status');
 
-  $('input[type=radio]').change(function() {
-    var self = $(this);
-    var rtrTime = self.val();
-    self.parents('tr')
-      .prev('tr')
-      .children('.return-time')
-      .text(rtrTime);
-  });
-
-  $('.form-data textarea').keyup(function(e) {
-    $(this)
-      .parents('tr')
-      .prev('tr')
-      .prev('tr')
-      .children('.return-message')
-      .text($(this).val());
-  });
-
-  $('.action-save').click(function() {
-    var row = $(this).parents('tr');
-    row.hide();
-    row.prev('tr').hide();
-    var userData = row.prev('tr').prev('tr');
-    var id = userData.data('id');
-    var time = userData.children('.return-time').text();
-    var message = userData.children('.return-message').text();
-    var xhr = $.ajax({
-      type: 'POST',
-      url: '/users/save', 
-      data:  {
-        id: id,
-        time: time,
-        message: message
-      },
-      dataType: 'json'
-    });
-    if(time) {
-      userData.find('.status').removeClass('available');
-      userData.find('.status').addClass('unavailable');
+  $('body').click(function() {
+    if($statusBox.is(":visible")) {
+      $statusBox.hide();
     }
   });
 
-  $('.action-back').click(function() {
-    var row = $(this).parents('tr');
-    var userData = row.prev('tr').prev('tr');
-    var id = userData.data('id');
-    row.hide();
-    row.prev('tr').hide();
-    row.prev('tr')
-      .prev('tr')
-      .children('.details')
-      .text('');
-    row.prev('tr')
-      .find('input')
-      .attr('checked', false);
-    row.find('textarea').val('');
+  $statusBox.click(function(e) {
+    e.stopPropagation(); 
+  });
 
-    $.post('users/save', {
-      id: id,
-      time: '',
-      message: ''
+  $('span.status').click(function(e) {
+    e.stopPropagation();
+    $statusBox.toggle();
+  });
+
+  $('.action-save', $statusBox).click(function() {
+    var returns = $('$radioButtons:checked').val();
+    $.post('/users/save', {
+        id: $statusBox.data('id'),
+        returns: returns,
+        message: $messageBox.val(),
+        available: (returns === undefined)
+    }, function(data) {
     });
-    userData.find('.status').removeClass('unavailable'); 
-    userData.find('.status').addClass('available'); 
+    $statusBox.hide();
+    $currentStatus.toggleClass('available', (returns === undefined));
+    $currentStatus.toggleClass('unavailable', (returns !== undefined));
+  });
+
+  $('.action-back').click(function() {
+    $.post('users/save', {
+      id: $statusBox.data('id'),
+      returns: '',
+      message: '',
+      available: true 
+    }, function(data) {
+    });
+    $statusBox.hide();
+    $messageBox.val('');
+    $radioButtons.attr('checked', false);
+    $currentStatus.addClass('available');
+    $currentStatus.removeClass('unavailable');
+
   });
 });

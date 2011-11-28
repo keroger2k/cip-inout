@@ -3,40 +3,20 @@
     <tr>
       <th>&nbsp;</th>
       <th>&nbsp;</th>
-      <th>Name</th>
       <th>Returns</th>
       <th>Message</th>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
-        <tr data-id="<%= user.id %>">
-          <% if current_user == user %>
-            <td class="action-edit"><%= link_to 'Edit', profile_path %></td>
-          <% else %>
-            <td class="action-edit">&nbsp;</td>
-          <% end %>
-          <td class="<%= user.returns? ? 'unavailable' : 'available' %> status">&nbsp;</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <% if user != current_user %>
+        <tr>
+          <td class="<%= user.available? ? 'unavailable' : 'available' %> status">&nbsp;</td>
           <td class="name"><%= user.name %></td>
           <td class="return-time details"><%= user.returns %></td>
           <td class="return-message details"><%= user.message %></td>
         </tr>
-        <% if current_user == user %>
-          <tr class="form-data">
-            <td colspan="5" class="away-radio-buttons">
-              <% ['7am','8am','9am','10am','11am',
-               '12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'].each do |i| %>
-                 <label class="time-out"><%= i %></label>
-                 <%= radio_button_tag 'time-back', i, false %>
-               <% end %>            </td>
-           </tr>
-           <tr class="form-data">
-             <td colspan="5" >
-               <%= text_area(:user, :message, :cols => 90, :rows => 4) %>
-               <button class="action-save">Save</button>
-               <button class="action-back">I'm Back</button>
-             </td>
-           </tr>
-         <% end %>
-       <% end %>
-     </tbody>
-   </table>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

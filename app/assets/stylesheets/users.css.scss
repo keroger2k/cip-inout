@@ -1,3 +1,44 @@
+html, body { height: 100%; }
+
+.available {
+  background-image:url('green-circle.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+.unavailable {
+  background-image:url('red-circle.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+span.unavailable, span.available {
+  display: inline-block;
+  width: 20px;
+  background-size: 15px;
+  margin-right: -8px;
+  cursor: pointer;
+}
+
+#my-status {
+  display:none; 
+  width: 450px;
+  position: absolute;
+  background-color: #FEFEFE;
+  border: 1px solid #AAA;
+  padding: 10px;
+  font-family: Arial,Helvetica,sans-serif;
+  -moz-box-shadow: 4px 4px 7px #ababab;
+  -webkit-box-shadow: 4px 4px 7px #ababab;
+  box-shadow: 4px 4px 7px #ababab;
+  z-index: 999;
+  top: 31px!important;
+  margin: 25px 0px 0 -200px;
+  line-height: 30px;
+}
+#my-status textarea {
+  margin: 10px 0;
+}
 table {
   width: 100%;
   font-size: 1.2em;
@@ -42,18 +83,6 @@ table {
   }
   .form-data {
     display: none;
-  }
-  .available {
-    background-image:url('green-circle.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20px;
-  }
-  .unavailable {
-    background-image:url('red-circle.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20px;
   }
   .status {
     width: 10px;

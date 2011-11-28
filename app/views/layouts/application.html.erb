@@ -10,11 +10,29 @@
     <div id="header">
       <div id="logo">
         <span>
-        <%= link_to image_tag("CORE-3.png", :border => 0), root_path, {:class => 'corp-logo'} %> 
+          <%= link_to image_tag("CORE-3.png", :border => 0), root_path, {:class => 'corp-logo'} %> 
         </span>
       </div>
       <div id="main-nav">
         <ul>
+          <li>
+            <% if current_user.available? %>
+              <span class="available status">&nbsp;</span>
+            <% else %>
+              <span class="unavailable status">&nbsp;</span>
+            <% end %>
+            <div id="my-status" data-id="<%= current_user.id %>">
+              <% ['7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'].each do |i| %>
+                <label class="time-out"><%= i %></label>
+                <%= radio_button_tag 'time-back', i, checked = (current_user.returns == i)%>
+              <% end %> 
+              <%= text_area :user, :message, :cols => 40, :rows => 4, :value => current_user.message %>
+              <div class="actions">
+                <button class="action-save">Save</button>
+                <button class="action-back">I'm Back</button>
+              </div>
+            </div>
+          </li>
           <% if user_signed_in? %>
             <li><%= link_to current_user.email, profile_path(@profile) %> | </li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
@@ -29,7 +47,6 @@
       <%= yield %>
     </div>
     <div id="footer">
-
     </div>
   </body>
 </html>

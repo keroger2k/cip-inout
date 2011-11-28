@@ -9,12 +9,12 @@ class UsersController < ApplicationController
 
   def save
     user = User.find(params[:id]);
-    user.message = params[:message];
-    user.returns = params[:time];
+    user.message = params[:message]
+    user.returns = params[:returns]
+    user.available = params[:available]
     user.save();
     respond_to do |format|
       format.json { render :json => "saved" }
     end
   end
-
 end
