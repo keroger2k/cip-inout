@@ -26,7 +26,6 @@ span.unavailable, span.available {
   position: absolute;
   background-color: #FEFEFE;
   border: 1px solid #AAA;
-  padding: 10px;
   font-family: Arial,Helvetica,sans-serif;
   -moz-box-shadow: 4px 4px 7px #ababab;
   -webkit-box-shadow: 4px 4px 7px #ababab;
@@ -36,6 +35,19 @@ span.unavailable, span.available {
   margin: 25px 0px 0 -200px;
   line-height: 30px;
 }
+
+#my-status #intro-text {
+  font-size: 11px;
+  line-height: 12px;
+  padding: 5px;
+  color: white;
+  background: #AAA;
+}
+
+#my-status .form-data {
+  padding: 10px;
+}
+
 #my-status textarea {
   margin: 10px 0;
 }
