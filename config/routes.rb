@@ -2,6 +2,7 @@ Inout::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   match "users/save" => "users#save"
+  match "users/update" => "users#update"
   devise_for :users
   resource :users
 
