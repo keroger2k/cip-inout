@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @users = User.where('email != ?', current_user.email)
+    @users = User.all
     respond_to do |format|
       format.json { render :json => @users }
     end
