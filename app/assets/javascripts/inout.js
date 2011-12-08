@@ -26,7 +26,6 @@ inout.refresh = function() {
 
 inout.save = function(obj, callback) {
   $.post('/users/save', obj || {}, callback );
-  $statusBox.hide();
 };
 
 
@@ -69,7 +68,7 @@ $(function() {
     inout.refresh();
   });
 
-  $('.action-back').click(function() {
+  $('.action-back', $statusBox).click(function() {
     inout.save({
       id: $statusBox.data('id'),
       returns: '',
