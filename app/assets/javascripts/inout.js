@@ -2,33 +2,36 @@ var inout = {};
 
 inout.refresh = function() {
   var users = $('#user-list');
-  var body = $('tbody', users);
-  var i = 0;
 
   if(users.length === 1) {
-    setTimeout(function() {
-      $.post('/users/update', function(data) {
-        body.empty();
-        for(i = 0; i < data.length; i++) {
-          $(body).append(
-            '<tr>' +
-            '<td class="' + (data[i].available ? 'available' : 'unavailable') + ' status">&nbsp</td>' +
-            '<td class="name">' + data[i].name + '</td>' +
-            '<td class="return-time details">' + (data[i].returns ? data[i].returns : '') + '</td>' +
-            '<td class="return-message details">' + (data[i].message ? data[i].message : '') + '</td>' +
-            '</tr>');
-        }
-        inout.refresh();
-      });
-    }, 20000);
+    setTimeout(inout.replaceUsers, 20000);
   }
 };
 
-inout.save = function(obj, callback) {
-  $.post('/users/save', obj || {}, callback );
-  setTimeout(inout.refresh(), 200);
+inout.replaceUsers = function() {
+  var body = $('#user-list tbody');
+  var i = 0;
+  $.getJSON('/', function(data) {
+    body.empty();
+    for(i = 0; i < data.length; i++) {
+      $(body).append(
+        '<tr>' +
+        '<td class="' + (data[i].available ? 'available' : 'unavailable') + ' status">&nbsp</td>' +
+        '<td class="name">' + data[i].name + '</td>' +
+        '<td class="return-time details">' + (data[i].returns ? data[i].returns : '') + '</td>' +
+        '<td class="return-message details">' + (data[i].message ? data[i].message : '') + '</td>' +
+        '</tr>');
+    }
+    inout.refresh();
+  });
 };
 
+inout.save = function(obj) {
+  $.post('/users/save', obj || {}, function(data) {
+    console.log(data); 
+  });
+  setTimeout(inout.replaceUsers, 500);
+};
 
 $(function() {
   var $statusBox = $('#my-status');
