@@ -38,6 +38,10 @@ $(function() {
 
   inout.refresh();
 
+  $statusBox.click(function(e) {
+    e.stopPropagation(); 
+  });
+
   $('body').click(function() {
     if($statusBox.is(":visible")) {
       $statusBox.hide();
