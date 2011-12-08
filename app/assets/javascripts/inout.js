@@ -28,9 +28,8 @@ inout.replaceUsers = function() {
 
 inout.save = function(obj) {
   $.post('/users/save', obj || {}, function(data) {
-    console.log(data); 
+    inout.replaceUsers();
   });
-  setTimeout(inout.replaceUsers, 500);
 };
 
 $(function() {

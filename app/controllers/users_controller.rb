@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user.available = params[:available]
     @user.save();
     respond_to do |format|
-      format.js { render :json => 'success', content_type: 'application/json'  }
+      format.js { render :json => "success".to_json  }
     end
   end
   
