@@ -65,6 +65,7 @@ $(function() {
     });
     $currentStatus.toggleClass('available', available );
     $currentStatus.toggleClass('unavailable', !available );
+    $statusBox.hide();
     inout.refresh();
   });
 
@@ -79,6 +80,7 @@ $(function() {
     $radioButtons.attr('checked', false);
     $currentStatus.addClass('available');
     $currentStatus.removeClass('unavailable');
+    $statusBox.hide();
     inout.refresh();
   });
 
