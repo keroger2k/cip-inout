@@ -61,11 +61,12 @@ $(function() {
       returns: returns,
       message: $messageBox.val(),
       available: available 
+    }, function() {
+      inout.refrehs();
     });
     $currentStatus.toggleClass('available', available );
     $currentStatus.toggleClass('unavailable', !available );
     $statusBox.hide();
-    inout.refresh();
   });
 
   $('.action-back', $statusBox).click(function() {
@@ -74,13 +75,14 @@ $(function() {
       returns: '',
       message: '',
       available: true 
+    }, function() {
+      inout.refresh(); 
     });
     $messageBox.val('');
     $radioButtons.attr('checked', false);
     $currentStatus.addClass('available');
     $currentStatus.removeClass('unavailable');
     $statusBox.hide();
-    inout.refresh();
   });
 
 });
