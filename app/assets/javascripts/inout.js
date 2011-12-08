@@ -26,6 +26,7 @@ inout.refresh = function() {
 
 inout.save = function(obj, callback) {
   $.post('/users/save', obj || {}, callback );
+  setTimeout(inout.refresh(), 200);
 };
 
 
@@ -61,8 +62,6 @@ $(function() {
       returns: returns,
       message: $messageBox.val(),
       available: available 
-    }, function() {
-      inout.refrehs();
     });
     $currentStatus.toggleClass('available', available );
     $currentStatus.toggleClass('unavailable', !available );
@@ -75,8 +74,6 @@ $(function() {
       returns: '',
       message: '',
       available: true 
-    }, function() {
-      inout.refresh(); 
     });
     $messageBox.val('');
     $radioButtons.attr('checked', false);
