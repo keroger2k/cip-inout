@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
+  respond_to :html, :json
 
   def index
     @users = User.all
-    respond_to do |format|
-      format.html
-      format.json { render :json => @users }
-    end
+    respond_with(@users);
   end
 
   def save
     @user = User.find(params[:id]);
-    @user.message = params[:message]
+    @user.update_attributes(params[:user])
     @user.returns = params[:returns]
     @user.available = params[:available]
     @user.save();
