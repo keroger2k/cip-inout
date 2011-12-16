@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user])
     @user.returns = params[:returns]
     @user.available = params[:available]
+    @user.message = params[:message]
     @user.save();
     respond_to do |format|
       format.js { render :json => "success".to_json  }
